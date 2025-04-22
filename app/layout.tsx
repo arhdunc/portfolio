@@ -1,14 +1,18 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Source_Code_Pro } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const sourceCodePro = Source_Code_Pro({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-source-code-pro",
+})
 
 export const metadata: Metadata = {
   title: "Adam Holding | Analyst",
   description: "Personal portfolio of Adam Holding, Analyst and Vibe Developer",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -17,11 +21,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={sourceCodePro.variable}>
+      <body>{children}</body>
     </html>
   )
 }
 
-
-import './globals.css'
+// import './globals.css'

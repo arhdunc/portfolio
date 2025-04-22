@@ -5,8 +5,8 @@ import { useEffect, useRef } from "react"
 // Export colors for consistent use throughout the app
 export const backgroundColors = {
   darkTeal: "#002a35",
-  lightTeal: "#00c896",
-  mediumTeal: "#00a67f",
+  lightTeal: "#00a67f",
+  mediumTeal: "#007a5c",
 }
 
 interface GridSquare {
@@ -53,18 +53,18 @@ export default function AnimatedGridBackground() {
         const probability = Math.min(0.8, 0.05 + (1 - distanceFromRight / cols) * 0.7)
 
         if (Math.random() < probability) {
-          // Different shades of green
-          const greenIntensity = 100 + Math.floor(Math.random() * 156)
+          // Different shades of green with reduced intensity
+          const greenIntensity = 50 + Math.floor(Math.random() * 100)
           const color = `rgba(0, ${greenIntensity}, ${Math.floor(greenIntensity * 0.7)}, 1)`
 
           squares.push({
             x: x * gridSize,
             y: y * gridSize,
-            size: gridSize - 1, // Small gap between squares
+            size: gridSize - 1,
             opacity: 0,
-            targetOpacity: 0.3 + Math.random() * 0.7, // Random target opacity
+            targetOpacity: 0.2 + Math.random() * 0.4,
             color,
-            transitionSpeed: 0.01 + Math.random() * 0.03, // Random transition speed
+            transitionSpeed: 0.01 + Math.random() * 0.03,
           })
         }
       }
@@ -80,7 +80,7 @@ export default function AnimatedGridBackground() {
       squares.forEach((square) => {
         // Randomly change target opacity
         if (Math.random() < 0.005) {
-          square.targetOpacity = Math.random() < 0.7 ? 0.3 + Math.random() * 0.7 : 0 // 70% chance to appear, 30% to disappear
+          square.targetOpacity = Math.random() < 0.7 ? 0.2 + Math.random() * 0.4 : 0
         }
 
         // Transition current opacity toward target

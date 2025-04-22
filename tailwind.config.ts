@@ -11,7 +11,15 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["'Source Code Pro'", "monospace"],
+        sans: ["var(--font-source-code-pro)", "monospace"],
+      },
+      fontWeight: {
+        thin: "200",
+        light: "300",
+        normal: "400",
+        medium: "500",
+        semibold: "600",
+        bold: "700",
       },
       colors: {
         background: "hsl(var(--background))",
